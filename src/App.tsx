@@ -52,28 +52,32 @@ function Page({ title, onNext }: { title: string; onNext: () => void }) {
   );
 }
 
-function App() {
-  const navigate = useNavigate();
-  const location = useLocation();
-
+function Dialog() {
   const post = (delay: number) => {
     window.opener.postMessage(delay);
     window.close();
   };
 
   return (
+    <>
+      <input className="button" type="button" onClick={() => post(0)} value="Close" />
+      <input className="button" type="button" onClick={() => post(10)} value="Delay 10" />
+      <input className="button" type="button" onClick={() => post(30)} value="Delay 30" />
+      <input className="button" type="button" onClick={() => post(100)} value="Delay 100" />
+    </>
+  );
+}
+
+function App() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  if (location.pathname.indexOf("dialog") >= 0) {
+    return <Dialog />;
+  }
+
+  return (
     <Routes>
-      <Route
-        path={`${baseUrl}dialog`}
-        element={
-          <>
-            <input className="button" type="button" onClick={() => post(0)} value="Close" />
-            <input className="button" type="button" onClick={() => post(10)} value="Delay 10" />
-            <input className="button" type="button" onClick={() => post(30)} value="Delay 30" />
-            <input className="button" type="button" onClick={() => post(100)} value="Delay 100" />
-          </>
-        }
-      />
       <Route
         path={`${baseUrl}page2`}
         element={
