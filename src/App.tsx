@@ -83,7 +83,7 @@ function App() {
         element={
           <>
             <ScrollToTop page={location.pathname} />
-            <Page title={location.pathname} onNext={() => navigate("/page1")} />
+            <Page title={location.pathname} onNext={() => navigate(`${baseUrl}page1`)} />
           </>
         }
       />
@@ -92,7 +92,7 @@ function App() {
         element={
           <>
             <ScrollToTop page={location.pathname} />
-            <Page title={location.pathname} onNext={() => navigate("/page2")} />
+            <Page title={location.pathname} onNext={() => navigate(`${baseUrl}page2`)} />
           </>
         }
       />
