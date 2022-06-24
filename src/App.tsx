@@ -25,7 +25,7 @@ function ScrollToTop({ page }: { page: string }) {
 
 function Page({ title, onNext }: { title: string; onNext: () => void }) {
   const next = () => {
-    window.open("/dialog");
+    window.open(`${baseUrl}dialog`);
     window.onmessage = (e) => {
       if (e.data === 0) {
         onNext();

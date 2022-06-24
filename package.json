@@ -21,6 +21,7 @@
     "start": "react-scripts start",
     "build": "vite build",
     "build:copy": "vite build --base=/scroll-to-top/ && rm -rf docs && mv -f dist docs",
+    "build-dialog:copy": "vite build --base=/scroll-to-top/dialog/ && mv -f dist docs/dialog",
     "dev": "vite serve",
     "preview": "vite preview",
     "test": "react-scripts test",
